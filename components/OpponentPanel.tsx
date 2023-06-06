@@ -7,11 +7,20 @@ const OpponentPanel = () => {
 
     const characterCount = 5
 
+    const powerStats = {
+        intelligence: 0,
+        strength: 0,
+        speed: 0,
+        durability: 0,
+        power: 0,
+        combat: 0
+      }
+
     const getOpponentCards = () => {
         let opponentCards = []
 
         for(let i = 0; i < characterCount; i++) {
-            opponentCards.push(<Card key={Math.random()} id={0} powerstats={undefined}/>)
+            opponentCards.push(<Card key={Math.random()} id={0} powerstats={powerStats}/>)
         }
 
         if(gameStage.end) {
