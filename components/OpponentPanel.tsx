@@ -7,20 +7,21 @@ const OpponentPanel = () => {
 
     const characterCount = 5
 
-    const powerStats = {
-        intelligence: 0,
-        strength: 0,
-        speed: 0,
-        durability: 0,
-        power: 0,
-        combat: 0
-      }
+    const GenericCard = () => {
+        return (
+            <button 
+                className={`text-white h-[250px] w-[150px] m-[5px] bg-cover rounded-md shadow-lg shadow-black bg-center border-white border-4 flex items-end transition ease-in-out bg-blue-500`}
+                style={{backgroundImage: `url(https://st2.depositphotos.com/5934840/10849/v/600/depositphotos_108498432-stock-illustration-superhero-design-superman-icon-costume.jpg})`}}
+            >
+            </button>
+        )
+    }
 
     const getOpponentCards = () => {
         let opponentCards = []
 
         for(let i = 0; i < characterCount; i++) {
-            opponentCards.push(<Card key={Math.random()} id={0} powerstats={powerStats}/>)
+            opponentCards.push(<GenericCard key={Math.random()}/>)
         }
 
         if(gameStage.end) {
