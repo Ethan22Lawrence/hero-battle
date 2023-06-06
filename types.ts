@@ -2,7 +2,7 @@ export interface Character {
   id: number
   name?: string | null
   slug?: string | null
-  powerstats: PowerStats
+  powerstats?: PowerStats
   appearance?: Appearance | null
   biography?: Biography | null
   work?: Work | null

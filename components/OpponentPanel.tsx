@@ -11,7 +11,7 @@ const OpponentPanel = () => {
         let opponentCards = []
 
         for(let i = 0; i < characterCount; i++) {
-            opponentCards.push(<Card key={Math.random()} id={0}/>)
+            opponentCards.push(<Card key={Math.random()} id={0} powerstats={undefined}/>)
         }
 
         if(gameStage.end) {
