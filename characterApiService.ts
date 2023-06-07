@@ -2,7 +2,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 export const characterApi = createApi({
     reducerPath: "characterApi",
-    baseQuery: fetchBaseQuery({baseUrl: "http://localhost:3000/api"}),
+    baseQuery: fetchBaseQuery({baseUrl: "https://hero-battle-git-main-ethan22lawrence.vercel.app/api"}),
     endpoints: (builder) => ({
         getAllCharacters: builder.query({
             query: page => ({url: "getAllCharacters", params: {page}}),
