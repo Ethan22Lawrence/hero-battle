@@ -4,8 +4,7 @@ import InfoPanel from "@/components/InfoPanel"
 const Home = () => {
 
   return (
-    <div className="flex justify-center justify-items-center p-20"
-    >
+    <div className="flex justify-center justify-items-center p-20">
       <div className="max-w-[300px] shadow-lg shadow-black mr-[20px]">
         <InfoPanel/>
       </div>

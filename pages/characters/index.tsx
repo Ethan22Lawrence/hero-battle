@@ -17,6 +17,7 @@ const Characters = () => {
     const [ trigger, { data: charOnSearch } ] = useLazyGetCharacterQuery()
     const searchRef: any = useRef(null)
     const [renderedList, setRenderedList] = useState<Character[]>([])
+    const listInnerRef: any = useRef();
 
     useEffect(() => {     
         document.addEventListener("scroll", ()=> {  
@@ -61,7 +62,9 @@ const Characters = () => {
     }
 
     const onScroll = useCallback(() => {
-        if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+        const element = document.getElementById('list-container')
+        const rect = element!.getBoundingClientRect()
+        if(rect.bottom < document.documentElement.scrollTop) {
             setPage(page + 1)
         }
     }, [page])
@@ -102,7 +105,7 @@ const Characters = () => {
                 </div>
                 <button className="rounded-md bg-highlight text-white px-[10px]" onClick={handleSearch}>Search</button>
             </div>
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center" id="list-container">
                 {showModal &&  characterDetails && <Modal onClick={closeModal} character={characterDetails} /> }
                 {
                     typeof renderedList !== 'undefined' && renderedList.map((character : Character) => {
