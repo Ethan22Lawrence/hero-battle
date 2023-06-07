@@ -62,9 +62,7 @@ const Characters = () => {
     }
 
     const onScroll = useCallback(() => {
-        const element = document.getElementById('list-container')
-        const rect = element!.getBoundingClientRect()
-        if(rect.bottom < document.documentElement.scrollTop) {
+        if(window.innerHeight === document.documentElement.scrollHeight - document.documentElement.scrollTop) {
             setPage(page + 1)
         }
     }, [page])
@@ -105,7 +103,7 @@ const Characters = () => {
                 </div>
                 <button className="rounded-md bg-highlight text-white px-[10px]" onClick={handleSearch}>Search</button>
             </div>
-            <div className="flex flex-wrap justify-center" id="list-container">
+            <div className="flex flex-wrap justify-center">
                 {showModal &&  characterDetails && <Modal onClick={closeModal} character={characterDetails} /> }
                 {
                     typeof renderedList !== 'undefined' && renderedList.map((character : Character) => {
